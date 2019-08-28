@@ -49,4 +49,18 @@ public class Item {
     public void setCurrentDiscount(int currentDiscount) {
         this.currentDiscount = currentDiscount;
     }
+    //methods
+    public double adjustPrice(double amount){
+        if (amount>=0){
+            price++;
+            return amount;
+        }else{
+            price--;
+            return amount;
+        }
+    }
+
+
+
+
 }
