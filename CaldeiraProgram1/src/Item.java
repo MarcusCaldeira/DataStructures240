@@ -59,9 +59,10 @@ public class Item {
             return amount;
         }
     }
-    public double priceAfterDiscount(){
-
+    public double priceAfterDiscount(double price, double currentDiscount){
+        return price-currentDiscount;
     }
+    public
 
 
 
