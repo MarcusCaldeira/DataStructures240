@@ -5,4 +5,48 @@
  *
  */
 public class Item {
+    //instance variables
+    String name;
+    double weight;
+    double price;
+    int currentDiscount;
+
+    public Item(String name, double weight, double price) {
+        this.name = name;
+        this.weight = weight;
+        this.price = price;
+        this.currentDiscount = 0;
+    }
+    //getters
+    public String getName() {
+        return name;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getCurrentDiscount() {
+        return currentDiscount;
+    }
+    //setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setCurrentDiscount(int currentDiscount) {
+        this.currentDiscount = currentDiscount;
+    }
 }
