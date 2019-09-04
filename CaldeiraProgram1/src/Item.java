@@ -1,5 +1,3 @@
-import javafx.scene.control.skin.CellSkinBase;
-
 /**
  *
  *
@@ -64,9 +62,9 @@ public class Item {
     public double priceAfterDiscount(double price, double currentDiscount){
         return price-currentDiscount;
     }
-    public boolean equals(String name, double weight){
+    public boolean equals(Item checkEquals){
         boolean output = false;
-        if(this.name == this.name && this.weight == this.weight)
+        if(this.name == checkEquals.name && this.weight == checkEquals.weight)
             output = true;
         else{
             output = false;
