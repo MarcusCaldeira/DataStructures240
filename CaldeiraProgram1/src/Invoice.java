@@ -1,10 +1,13 @@
-* @Author Marcus Caldeira
-        *
-        */
+/**
+ *
+ *
+ * @Author Marcus Caldeira
+ *
+ */
 public class Invoice {
     //instance variables
     public String customersName;	// The variables take on whatever values you specify up here first.
-    public Item[] items = null;
+    public Item[] items;
     public int numItems;
 
     public Invoice(String customersName) {
@@ -12,21 +15,21 @@ public class Invoice {
         // and then their values get changed to these.
         this.customersName = customersName;
         this.items = new Item[5];
+        numItems = 0;
+    }
+    public double getTotal(){
+        double total = 0;
+        for( int i=0; i<items.length; i++){
+            if(items[i] = !null)
+                total += items[i].getPrice();
+        }
+        
+        return total ;
     }
 
-    public static void main(String[] args)
-    {
-        // Every instance of Invoice has totally separate customerName, items, and numItems variables.
-        Invoice myTestInvoice = new Invoice("John Smith");
 
-        Invoice anotherInvoice = new Invoice("Jane Doe");
 
-        // Will print John Smith.
-        System.out.println(myTestInvoice.customerName);
 
-        // Will print Jane Doe. They're two totally different customer names.
-        System.out.println(anotherInvoice.customerName);
-    }
 
 
 
