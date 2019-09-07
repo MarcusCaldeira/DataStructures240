@@ -11,8 +11,16 @@ public class InvoiceDriverClass {
 
         Invoice one = new Invoice("Joe");
         one.addItem("Box", 23,50 );
-        one.addItem("Box", 23,50 );
-        one.addItem("Box", 23,50 );
+        one.addItem("Paper", 23,50 );
+        one.addItem("Cup", 23,50 );
+        one.addItem("Soup", 23,50 );
+        one.addItem("Tin", 23,50 );
+        one.addItem("Copper", 23,50 );
+        one.addItem("Iron", 23,50 );
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println(one.items[i]);
+        }
 
 
 

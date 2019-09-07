@@ -44,12 +44,19 @@ public class Invoice {
     }
     public void addItem(String name, double price, double weight) {
         Item newItem = new Item(name, price, weight);
-        int sizeOfArray = items.length;
-        if(sizeOfArray == 5){
-            System.out.print("This invoice is full");
+        boolean isAdded = false;
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] == null){ // check if the current item in items is set to null
+                items[i] = newItem;
+                isAdded = true;
+                break; // exit loop
+            }
         }
-        items[sizeOfArray] = newItem;
+        if(!isAdded){
+            System.out.println("Invoice already has five items");
+        }
     }
+
 
 
 
