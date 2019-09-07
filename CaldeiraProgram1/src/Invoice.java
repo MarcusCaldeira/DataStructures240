@@ -42,22 +42,13 @@ public class Invoice {
         }
         return totalWeight;
     }
-    public void addItem(String name, double price, double weight){
+    public void addItem(String name, double price, double weight) {
         Item newItem = new Item(name, price, weight);
-        for(int i =0;i<items.length; i++){
-            if (items[1] == null){
-                items[1] = newItem;
-            }
-            else {
-                items[5] != null
-            }
-
+        int sizeOfArray = items.length;
+        if(sizeOfArray == 5){
+            System.out.print("This invoice is full");
         }
-    }
-
-
-
-
+        items[sizeOfArray] = newItem;
     }
 
 
