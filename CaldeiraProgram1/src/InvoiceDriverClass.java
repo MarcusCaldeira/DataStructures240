@@ -1,8 +1,6 @@
-/**
- *
- *
+/**This class checks the functionality of the invoice and item class.
  * @Author Marcus Caldeira
- *
+ *August 7,2019
  */
 public class InvoiceDriverClass {
     public static void main(String[] args) {

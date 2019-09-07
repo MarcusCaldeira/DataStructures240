@@ -94,9 +94,21 @@ public class Item {
     public void adjustPrice(double amount){
         price = price + amount;
     }
+
+    /**
+     * This method calculates and returns the discounted items price.
+     * @param price the price of an item.
+     * @param currentDiscount the current discount on an item.
+     */
     public void priceAfterDiscount(double price, double currentDiscount){
         price = price-currentDiscount;
     }
+
+    /**
+     * tests the equality of two items.
+     * @param checkEquals variable to see if items are equal.
+     * @return returns true or false is an item is considered the same.
+     */
     public boolean equals(Item checkEquals){
         boolean output = false;
         if(this.name == checkEquals.name && this.weight == checkEquals.weight)
@@ -106,6 +118,11 @@ public class Item {
         }
         return output;
     }
+
+    /**
+     * Returns a nicely formatted string description of an item.
+     * @return- a string showing the item details.
+     */
     public String toString(){
         String str = "The Products name is " + name + " The Weight is " + weight + " The Price Is " +
                price + " The Current Discount is " + currentDiscount + ".\n";
