@@ -35,7 +35,7 @@ public class Invoice {
         double totalCost = 0;
         for (int i = 0; i<items.length; i++){
             if (items[1] != null)
-                totalCost -= items[i].getCurrentDiscount();
+                totalCost += items[i].price * (100 - items[i].getCurrentDiscount()) /100;
         }
         return totalCost;
     }
@@ -74,8 +74,9 @@ public class Invoice {
             System.out.println("The input " +itemNum + "is invalid");
         }
     }
-    public static void calculateTax(double cost, double taxRate){
+    public static double calculateTax(double cost, double taxRate){
         double tax = ((cost * taxRate) / 100);
+        return tax;
     }
     public String toString(){
         String itemsString = "";
@@ -85,19 +86,13 @@ public class Invoice {
             }
         }
 
+        Double totoalPlusTax = getDiscountedTotal() + calculateTax(getDiscountedTotal(),4.5);
+
         
         String str2 =("Invoice for " +customersName+ "\nItems Purchased " + numItems + "\n" +itemsString + "\n The " +
-                "Total Weight For Your Order is " + getTotalWeight()) + "\n" + "Total Before Discount " +getTotal() +
-                "\nTotal After Discount" + getDiscountedTotal();
+                "Total Weight For Your Order is " + getTotalWeight() + "\n" + "Total Before Discount " +getTotal() +
+                "\nTotal After Discount " + getDiscountedTotal() + "\nTax Based on Discount " + calculateTax(getDiscountedTotal(),4.5)
+                + "\n\nTOTAL COST: " + totoalPlusTax);
         return str2;
     }
-
-
-
-
-
-
-
-
-
 }

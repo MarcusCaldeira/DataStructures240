@@ -24,14 +24,10 @@ public class InvoiceDriverClass {
         for (int i = 0; i < 5; i++) {
             System.out.println(one.items[i]);
         }
-
+        System.out.println("static method test: "+ Invoice.calculateTax(one.getDiscountedTotal(),10));
         System.out.println("\n\n");
 
-        System.out.println(one);
-
-
-
-
+        System.out.println(one.toString());
     }
 
 }
