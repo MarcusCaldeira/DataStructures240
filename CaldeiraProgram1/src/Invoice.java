@@ -20,12 +20,27 @@ public class Invoice {
     public double getTotal(){
         double total = 0;
         for( int i=0; i<items.length; i++){
-            if(items[i] = !null)
+            if(items[i] != null)
                 total += items[i].getPrice();
         }
-        
         return total ;
     }
+    public double getDiscountedTotal(){
+        double totalCost = 0;
+        for (int i = 0; i<items.length; i++){
+            if (items[1] != null)
+                totalCost -= items[i].getCurrentDiscount();
+        }
+        return totalCost;
+    }
+    public double getTotalWeight(){
+        double totalWeight = 0;
+        for(int i = 0; i<items.length; i++){
+            totalWeight += items[1].getWeight();
+        }
+        return totalWeight;
+    }
+
 
 
 
