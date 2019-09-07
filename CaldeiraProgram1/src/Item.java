@@ -50,17 +50,11 @@ public class Item {
         this.currentDiscount = currentDiscount;
     }
     //methods
-    public double adjustPrice(double amount){
-        if (amount>=0){
-            price++;
-            return amount;
-        }else{
-            price--;
-            return amount;
-        }
+    public void adjustPrice(double amount){
+        price = price + amount;
     }
-    public double priceAfterDiscount(double price, double currentDiscount){
-        return price-currentDiscount;
+    public void priceAfterDiscount(double price, double currentDiscount){
+        price = price-currentDiscount;
     }
     public boolean equals(Item checkEquals){
         boolean output = false;

@@ -17,6 +17,9 @@ public class InvoiceDriverClass {
         one.addItem("Tin", 23,50 );
         one.addItem("Copper", 23,50 );
         one.addItem("Iron", 23,50 );
+        one.adjustPrice(0,5);
+        one.adjustPrice(9,-3);
+        one.applyDiscount(3, 12);
 
         for (int i = 0; i < 5; i++) {
             System.out.println(one.items[i]);
