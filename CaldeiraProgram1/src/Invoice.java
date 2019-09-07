@@ -1,3 +1,5 @@
+import javafx.scene.control.SplitMenuButton;
+
 /**
  *
  *
@@ -40,7 +42,23 @@ public class Invoice {
         }
         return totalWeight;
     }
+    public void addItem(String name, double price, double weight){
+        Item newItem = new Item(name, price, weight);
+        for(int i =0;i<items.length; i++){
+            if (items[1] == null){
+                items[1] = newItem;
+            }
+            else {
+                items[5] != null
+            }
 
+        }
+    }
+
+
+
+
+    }
 
 
 

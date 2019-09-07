@@ -9,6 +9,14 @@ public class InvoiceDriverClass {
         Item orange = new Item("orange", 2, 1);
         System.out.println(orange);
 
+        Invoice one = new Invoice("Joe");
+        one.addItem("Box", 23,50 );
+        one.addItem("Box", 23,50 );
+        one.addItem("Box", 23,50 );
+        one.addItem("Box", 23,50 );
+        one.addItem("Box", 23,50 );
+
 
     }
+
 }
