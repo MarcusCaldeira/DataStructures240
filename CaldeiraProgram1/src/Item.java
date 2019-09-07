@@ -2,7 +2,7 @@
  *
  *
  * @Author Marcus Caldeira
- *
+ *August 7, 2019
  */
 public class Item {
     //instance variables
