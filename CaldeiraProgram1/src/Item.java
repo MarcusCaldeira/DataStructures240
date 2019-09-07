@@ -66,8 +66,8 @@ public class Item {
         return output;
     }
     public String toString(){
-        String str = " The Products name is " + name + " The Weight is " + weight + " The Price Is " +
-               price + " The Current Discount is " + currentDiscount + ".";
+        String str = "The Products name is " + name + " The Weight is " + weight + " The Price Is " +
+               price + " The Current Discount is " + currentDiscount + ".\n";
         return str;
     }
 

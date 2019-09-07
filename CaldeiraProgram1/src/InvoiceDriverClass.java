@@ -25,6 +25,9 @@ public class InvoiceDriverClass {
             System.out.println(one.items[i]);
         }
 
+        System.out.println("\n\n");
+
+        System.out.println(one);
 
 
 

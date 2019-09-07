@@ -12,6 +12,10 @@ public class Invoice {
     public Item[] items;
     public int numItems;
 
+    /**
+     * Constructor for the Invoice class
+     * @param customersName Name of customer
+     */
     public Invoice(String customersName) {
 
         // and then their values get changed to these.
@@ -69,7 +73,23 @@ public class Invoice {
         }else{
             System.out.println("The input " +itemNum + "is invalid");
         }
+    }
+    public static void calculateTax(double cost, double taxRate){
+        double tax = ((cost * taxRate) / 100);
+    }
+    public String toString(){
+        String itemsString = "";
+        for (int i =0; i < items.length; i++){
+            if(items[i] != null){
+                itemsString += items[i].toString()+ "\n" ;
+            }
+        }
 
+        
+        String str2 =("Invoice for " +customersName+ "\nItems Purchased " + numItems + "\n" +itemsString + "\n The " +
+                "Total Weight For Your Order is " + getTotalWeight()) + "\n" + "Total Before Discount " +getTotal() +
+                "\nTotal After Discount" + getDiscountedTotal();
+        return str2;
     }
 
 
