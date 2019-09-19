@@ -2,40 +2,40 @@
  *A Class for A Collection of Beers that I have tried.
  */
 public class Beer {
-    private int aggregateInformation;
-    private String searchKey;
-    private String Name = "";
+    private int rating;
+    private String brand;
+    private String name = "";
 
     /**
-     *Getter for aggregateInformation
+     *Getter for rating
      * @return a integer
      */
-    public int getAggregateInformation() {
-        return aggregateInformation;
+    public int getRating() {
+        return rating;
     }
 
     /**
-     * Sets the aggregate information
-     * @param aggregateInformation
+     * Sets the rating.
+     * @param rating
      */
-    public void setAggregateInformation(int aggregateInformation) {
-        this.aggregateInformation = aggregateInformation;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     /**
      * Gets the search for the Beer, im searching for.
      * @return will return a string.
      */
-    public String getSearchKey() {
-        return searchKey;
+    public String getBrand() {
+        return brand;
     }
 
     /**
      *Will ser the search key for the searchKey
-     * @param searchKey
+     * @param brand
      */
-    public void setSearchKey(String searchKey) {
-        this.searchKey = searchKey;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     /**
@@ -43,7 +43,7 @@ public class Beer {
      * @return a String.
      */
     public String getName() {
-        return Name;
+        return name;
     }
 
     /**
@@ -51,11 +51,16 @@ public class Beer {
      * @param name
      */
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
+
+    /**
+     * THIS METHOD NEEDS WORK. I DONT KNOW HOW TO FORMAT STRINGS!
+     * @return
+     */
     @Override
     public String toString(){
-        String str = "";
+        String str = String.format("%s","%s","%d", name + brand +   rating);
         return str;
     }
 
