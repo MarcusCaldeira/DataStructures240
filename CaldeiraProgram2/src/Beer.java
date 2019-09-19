@@ -54,5 +54,9 @@ public class Beer {
         Name = name;
     }
     @Override
+    public String toString(){
+        String str = "";
+        return str;
+    }
 
 }
