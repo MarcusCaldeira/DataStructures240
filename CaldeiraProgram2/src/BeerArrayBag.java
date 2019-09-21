@@ -30,9 +30,53 @@ public class BeerArrayBag {
 
         return str;
     }
-    public void display(String displayAllBeers){
-
+    public void display(String beerBrand){
+        System.out.printf("%-15s\t%-15s\t%-15s\n--------------------------------------\n", "Name", "Brand", "Rating");
+        for(int i = 0; i < manyItems; i++)
+            if(data[i].getBrand().equalsIgnoreCase(beerBrand)){
+                System.out.printf("%-15s\t%-15s\t%-15s\n--------------------------------------\n",data[i].getName(),data[i].getBrand(),data[i].getRating());
+            }
     }
-
+    public int countOccurrences(String key){
+        int count = 0;
+        for(int i = 0; i < manyItems; i++){
+            if(data[1].getBrand().equalsIgnoreCase(key))
+                count++;
+        }
+        return count;
+    }
+    public boolean contains(Beer beer2){
+        for(int i = 0; i < manyItems; i++){
+            if(data[i].equals(beer2)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public int total(){
+        int sum = 0;
+        for(int i = 0; i < manyItems; i++){
+            sum += data[i].getRating();
+        }
+        return sum;
+    }
+    public int countRange(int bottomRange, int topRange){
+        int count = 0;
+            for (int i = 0; i < manyItems; i++){
+                if(data[i].getRating() >= bottomRange && data[i].getRating()<= topRange)
+                    count++;
+            }
+            return count;
+    }
+    public boolean delete(Beer target){
+        for(int i = 0; i < manyItems; i++){
+            if(data[i].equals(target)){
+                this.data[i] = this.data[manyItems-1] ;
+                this.manyItems --;
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
