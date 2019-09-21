@@ -60,8 +60,22 @@ public class Beer {
      */
     @Override
     public String toString(){
-        String str = String.format("%s","%s","%d", name + brand +   rating);
+        String str = String.format("%s\t%s\t%d\t", name, brand, rating);
         return str;
     }
 
+    /**
+     * This method checks the searchkey(NAME, and checks for duplicates).
+     * @param obj
+     * @return
+     */
+    @Override
+    public boolean equals(Object obj){
+        boolean output = false;
+        if(obj instanceof Beer){
+            Beer otherBeer = (Beer) obj;
+            output = otherBeer.name.equalsIgnoreCase(this.name);
+        }
+        return output;
+    }
 }
