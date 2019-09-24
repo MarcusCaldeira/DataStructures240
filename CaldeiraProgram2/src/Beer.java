@@ -1,5 +1,7 @@
 /**
- *A Class for A Collection of Beers that I have tried.
+ * Defining an object that will be used in a collection class.
+ * The Beer Class has three private variables, the rating, the brand, and the name.
+ * Methods are used in the BeerArrayBag Class.
  */
 public class Beer {
     private int rating;
@@ -7,7 +9,7 @@ public class Beer {
     private String name = "";
 
     /**
-     *Getter for rating
+     *Getter or Rating.
      * @return a integer
      */
     public int getRating() {
@@ -31,8 +33,8 @@ public class Beer {
     }
 
     /**
-     *Will ser the search key for the searchKey
-     * @param brand
+     *Method will set the Brand.
+     * @param brand String.
      */
     public void setBrand(String brand) {
         this.brand = brand;
@@ -48,7 +50,7 @@ public class Beer {
 
     /**
      * sets the name of the beer.
-     * @param name
+     * @param name String.
      */
     public void setName(String name) {
         this.name = name;
@@ -66,8 +68,9 @@ public class Beer {
 
     /**
      * This method checks the searchkey(NAME, and checks for duplicates).
-     * @param obj
-     * @return
+     * @param obj Taking a generic object from object class, and comparing if its
+     *            an instance of the Beer object in combination with a equalsIgnoreCase.
+     * @return A Boolean that is false.
      */
     @Override
     public boolean equals(Object obj){

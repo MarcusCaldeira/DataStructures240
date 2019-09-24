@@ -3,7 +3,10 @@
  */
 public class Driver {
 
-
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         BeerArrayBag bag1 = new BeerArrayBag(10);
@@ -28,10 +31,6 @@ public class Driver {
 
         System.out.println(bag1.delete(beer2));
         System.out.println(bag1.delete(beer2));
-
-
-
-
 
 //
 //        Beer one = new Beer();
