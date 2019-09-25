@@ -1,11 +1,13 @@
 /**
- *
+ *This is the collection class, This bag contains numerous Beers.
+ * and will display them in a nicely formatted way.
  */
 public class BeerArrayBag {
     private Beer[] data;
     private int manyItems;
     /**
-     * @param size
+     * Method to initialize the bag.
+     * @param size an array of Beers.
      */
     public BeerArrayBag(int size) {
         this.data = new Beer[size];
@@ -13,10 +15,10 @@ public class BeerArrayBag {
     }
 
     /**
-     *
-     * @param name
-     * @param brand
-     * @param rating
+     *This method instantiates, the Beer Object.
+     * @param name String.
+     * @param brand String.
+     * @param rating Int.
      */
     public void insert(String name, String brand, int rating){
         Beer newBeer = new Beer();
@@ -28,16 +30,16 @@ public class BeerArrayBag {
     }
 
     /**
-     *
-     * @return
+     *This method returns the number of objects in the collection.
+     * @return An array of the items in the collection.
      */
     public int size(){
         return this.manyItems;
     }
 
     /**
-     *
-     * @return
+     *Override toString method that prints out the correctly formatted version of a list.
+     * @return a string.
      */
     @Override
     public String toString(){
@@ -49,7 +51,8 @@ public class BeerArrayBag {
     }
 
     /**
-     *
+     *This method, will correctly show the Search key of what youre searching for.
+     * In my case you can search by beerBrand.
      * @param beerBrand
      */
     public void display(String beerBrand){
@@ -59,11 +62,12 @@ public class BeerArrayBag {
                 System.out.printf("%-15s\t%-15s\t%-15s\n--------------------------------------\n",data[i].getName(),data[i].getBrand(),data[i].getRating());
             }
     }
-
     /**
-     *
-     * @param key
-     * @return
+     *This method gathers the number of items that have the
+     * search key.
+     * @param key A string.
+     * @return returns an Int called count(which is the number of items in the count
+     * that have the search key.
      */
     public int countOccurrences(String key){
         int count = 0;
@@ -73,11 +77,11 @@ public class BeerArrayBag {
         }
         return count;
     }
-
     /**
-     *
-     * @param beer2
-     * @return
+     *Method to determine if the collection
+     * contains at least one beer.
+     * @param beer2 an object of Beer.
+     * @return a boolean.
      */
     public boolean contains(Beer beer2){
         for(int i = 0; i < manyItems; i++){
@@ -87,10 +91,10 @@ public class BeerArrayBag {
         }
         return false;
     }
-
     /**
-     *
-     * @return
+     *This method calculates the sum,
+     * of all the ratings inside the Beer Class.
+     * @return int sum of rating.
      */
     public int total(){
         int sum = 0;
@@ -99,12 +103,13 @@ public class BeerArrayBag {
         }
         return sum;
     }
-
     /**
-     *
-     * @param bottomRange
-     * @param topRange
-     * @return
+     *This method takes in two numbers that count as
+     * the range, then it will populate how many items of the list
+     * are within that range.
+     * @param bottomRange the lower of the range.
+     * @param topRange the higher number of the range.
+     * @return returns an int of the count inside the collection.
      */
     public int countRange(int bottomRange, int topRange){
         int count = 0;
@@ -114,11 +119,10 @@ public class BeerArrayBag {
             }
             return count;
     }
-
     /**
-     *
-     * @param target
-     * @return
+     *Method takes the
+     * @param target Beer object that you want to delete.
+     * @return a boolean.
      */
     public boolean delete(Beer target){
         for(int i = 0; i < manyItems; i++){

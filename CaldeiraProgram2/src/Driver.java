@@ -4,7 +4,7 @@
 public class Driver {
 
     /**
-     *
+     *The Main method inside the class, to test and print out the code.
      * @param args
      */
     public static void main(String[] args) {
