@@ -20,29 +20,32 @@ public class BeerArrayBag {
      * @param brand String.
      * @param rating Int.
      */
-//    public void insert(String name, String brand, int rating){
-//        Beer newBeer = new Beer();
-//        newBeer.setName(name);
-//        newBeer.setBrand(brand);
-//        newBeer.setRating(rating);
-//        data[manyItems] = newBeer;
-//        manyItems++;
-//    }
-//    public void insert(String name, String brand, int rating){
-//        Beer newBeer = new Beer();
-//        newBeer.setName(name);
-//        newBeer.setBrand(brand);
-//        newBeer.setRating(rating);
-//        data[manyItems] = newBeer;
-//        for(int i = 0; i < manyItems; i++){
-//            if(data[i].getBrand().compareTo(brand)){
-//                temp = data[i];
-//            }
-//
-//
-//        }
-//        manyItems++;
-//    }
+    public void insert(String name, String brand, int rating){
+        if (manyItems >= data.length){ // the data array is already full
+            return;
+        }
+        Beer newBeer = new Beer();
+        newBeer.setName(name);
+        newBeer.setBrand(brand);
+        newBeer.setRating(rating);
+        data[manyItems] = newBeer;
+        for(int i = 0; i < manyItems; i++){
+            if(data[i].compareTo(newBeer) < 0){
+                i++;
+            }
+            if(data[i] == null){ // if the current position is empty add it here
+                data[i] = newBeer;
+                break;
+            }else{ // move all remaining items up one index
+                for (int j = manyItems -1; j >= i; j--){
+                    data[j+1]= data[j];
+                }
+                data[i] = newBeer;
+                break;
+            }
+        }
+        manyItems++; // increase the count of items in the bag
+    }
 
     /**
      *This method returns the number of objects in the collection.
@@ -87,7 +90,7 @@ public class BeerArrayBag {
     public int countOccurrences(String key){
         int count = 0;
         for(int i = 0; i < manyItems; i++){
-            if(data[1].getBrand().equalsIgnoreCase(key))
+            if(data[i].getBrand().equalsIgnoreCase(key))
                 count++;
         }
         return count;
@@ -142,7 +145,9 @@ public class BeerArrayBag {
     public boolean delete(Beer target){
         for(int i = 0; i < manyItems; i++){
             if(data[i].equals(target)){
-                this.data[i] = this.data[manyItems-1] ;
+                for (int j = i; j < manyItems; j++){
+                    data [j] = data[j + 1];
+                }
                 this.manyItems --;
                 return true;
             }

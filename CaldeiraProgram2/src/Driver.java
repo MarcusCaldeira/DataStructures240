@@ -17,6 +17,9 @@ public class Driver {
         bag1.insert("Corona 45", "Corona", 7);
 
         bag1.size();
+        Beer beerToDelete = new Beer();
+        beerToDelete.setName("Budwiser light");
+        bag1.delete(beerToDelete);
         System.out.println(bag1.toString());
         bag1.display("Coors");
         bag1.countOccurrences("Coors");
