@@ -3,7 +3,7 @@
  * The Beer Class has three private variables, the rating, the brand, and the name.
  * Methods are used in the BeerArrayBag Class.
  */
-public class Beer {
+public class Beer implements Comparable <Beer>{
     private int rating;
     private String brand;
     private String name = "";
@@ -57,15 +57,14 @@ public class Beer {
     }
 
     /**
-     * THIS METHOD NEEDS WORK. I DONT KNOW HOW TO FORMAT STRINGS!
-     * @return
+     * This method returns a nicely formatted object.
+     * @return a string.
      */
     @Override
     public String toString(){
         String str = String.format("%s\t%s\t%d\t", name, brand, rating);
         return str;
     }
-
     /**
      * This method checks the searchkey(NAME, and checks for duplicates).
      * @param obj Taking a generic object from object class, and comparing if its
@@ -80,5 +79,17 @@ public class Beer {
             output = otherBeer.name.equalsIgnoreCase(this.name);
         }
         return output;
+    }
+    /**
+     * Compares two beers by comparing their brands. Results reflect
+     * case insensitive alphabetical ordering.
+     * @param beer Beer for comparison
+     * @return int -1 if this.brand < beer.brand.
+     * 0 if this.brand == beer.brand
+     * 1 if this.brand > beer.brand
+     */
+    @Override
+    public int compareTo(Beer beer) {
+        return this.brand.compareToIgnoreCase(beer.brand);
     }
 }

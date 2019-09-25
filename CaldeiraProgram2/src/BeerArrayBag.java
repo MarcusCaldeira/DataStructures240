@@ -20,14 +20,29 @@ public class BeerArrayBag {
      * @param brand String.
      * @param rating Int.
      */
-    public void insert(String name, String brand, int rating){
-        Beer newBeer = new Beer();
-        newBeer.setName(name);
-        newBeer.setBrand(brand);
-        newBeer.setRating(rating);
-        data[manyItems] = newBeer;
-        manyItems++;
-    }
+//    public void insert(String name, String brand, int rating){
+//        Beer newBeer = new Beer();
+//        newBeer.setName(name);
+//        newBeer.setBrand(brand);
+//        newBeer.setRating(rating);
+//        data[manyItems] = newBeer;
+//        manyItems++;
+//    }
+//    public void insert(String name, String brand, int rating){
+//        Beer newBeer = new Beer();
+//        newBeer.setName(name);
+//        newBeer.setBrand(brand);
+//        newBeer.setRating(rating);
+//        data[manyItems] = newBeer;
+//        for(int i = 0; i < manyItems; i++){
+//            if(data[i].getBrand().compareTo(brand)){
+//                temp = data[i];
+//            }
+//
+//
+//        }
+//        manyItems++;
+//    }
 
     /**
      *This method returns the number of objects in the collection.
