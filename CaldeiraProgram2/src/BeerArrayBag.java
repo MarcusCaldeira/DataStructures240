@@ -138,7 +138,8 @@ public class BeerArrayBag {
             return count;
     }
     /**
-     *Method takes the
+     *Method takes the name of the beer and
+     * deletes the one you want to delete.
      * @param target Beer object that you want to delete.
      * @return a boolean.
      */
