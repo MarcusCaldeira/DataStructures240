@@ -3,6 +3,7 @@
  * The Beer Class has three private variables, the rating, the brand, and the name.
  * Methods are used in the BeerArrayBag Class.
  */
+@SuppressWarnings("Duplicates")
 public class Beer implements Comparable <Beer>{
     private int rating;
     private String brand;
