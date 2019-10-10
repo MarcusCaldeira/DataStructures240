@@ -58,6 +58,9 @@ public class BeerLinkedBag {
             return true;
         }
     }
+    public int countRage(Beer start, Beer end){
+
+    }
 
 
 
