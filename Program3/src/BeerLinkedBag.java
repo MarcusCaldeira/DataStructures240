@@ -1,3 +1,5 @@
+import com.sun.source.tree.IfTree;
+
 public class BeerLinkedBag {
     private BeerNode head;
     private  int manyItems;
@@ -44,10 +46,19 @@ public class BeerLinkedBag {
         }
         return false;
     }
-    public boolean remove(Beer target){
-        BeerNode targetNode = BeerNode.listSearch(this.head,target);
-
+    public boolean remove(Beer index){
+        BeerNode targetNode = BeerNode.listSearch(this.head,index);
+        if(targetNode== null)
+            return false;
+        else {
+            Beer data = this.head.getData();
+            targetNode.setData(data);
+            manyItems--;
+            this.head = this.head.getLink();
+            return true;
+        }
     }
+
 
 
 
