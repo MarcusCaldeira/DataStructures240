@@ -46,8 +46,8 @@ public class BeerLinkedBag {
         }
         return false;
     }
-    public boolean remove(Beer index){
-        BeerNode targetNode = BeerNode.listSearch(this.head,index);
+    public boolean remove(int index){
+        BeerNode targetNode = BeerNode.listPosition(this.head,index);
         if(targetNode== null)
             return false;
         else {
@@ -58,11 +58,11 @@ public class BeerLinkedBag {
             return true;
         }
     }
-    public int countRage(Beer element){
+    public int countRage(Beer start){
         int count = 0;
         BeerNode cursor = head;
         while(cursor !=null){
-            if (cursor.getData() == element)
+            if (cursor.getData() == start)
                 count++;
                 cursor=cursor.getLink();
         }
