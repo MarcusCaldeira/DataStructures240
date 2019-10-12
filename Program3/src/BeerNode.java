@@ -30,11 +30,27 @@ public class BeerNode {
     public void removeBeerNodeAfter(){
         link = link.link;
     }
+    public static void display(BeerNode list){
+        BeerNode cursor = list;
+
+        while(cursor != null){
+            System.out.println(cursor.data);
+            cursor = cursor.getLink();
+        }
+    }
+    public static BeerNode listPosition(BeerNode head, int position){
+        BeerNode cursor;
+        int i;
+        if(position <= 0)
+            throw new IllegalArgumentException("position is not positive.");
+            cursor = head;
+            for (i = 1; (i < position) && (cursor != null); i++)
+                cursor = cursor.link;
+            return cursor;
+    }
     public static int listLength(BeerNode head){
         BeerNode cursor;
         int answer;
-
-
         answer = 0;
         for(cursor = head; cursor !=null; cursor=cursor.link)
             answer++;
@@ -47,8 +63,4 @@ public class BeerNode {
                 return cursor;
             return null;
     }
-
-
-
-
 }

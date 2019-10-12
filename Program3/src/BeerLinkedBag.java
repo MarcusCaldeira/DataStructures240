@@ -58,9 +58,17 @@ public class BeerLinkedBag {
             return true;
         }
     }
-    public int countRage(Beer start, Beer end){
-
+    public int countRage(Beer element){
+        int count = 0;
+        BeerNode cursor = head;
+        while(cursor !=null){
+            if (cursor.getData() == element)
+                count++;
+                cursor=cursor.getLink();
+        }
+        return count;
     }
+
 
 
 

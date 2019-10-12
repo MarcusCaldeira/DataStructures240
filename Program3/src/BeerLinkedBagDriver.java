@@ -4,6 +4,8 @@ public class BeerLinkedBagDriver {
 
 
         BeerLinkedBag bag1 = new BeerLinkedBag();
+        BeerLinkedBag bag2 = new BeerLinkedBag();
+        bag2.add();
         System.out.println(bag1.size());
 
 
