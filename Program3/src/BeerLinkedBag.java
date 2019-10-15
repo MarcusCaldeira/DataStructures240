@@ -86,14 +86,17 @@ public class BeerLinkedBag {
         }
         return count;
     }
-
     public Beer grab(int index) {
-        BeerNode cursor;
-        if (index > manyItems) {
-            return null;
+        BeerNode cursor = head;
+        int target =1;
+        while (cursor != null){
+            if (target == index){
+                return cursor.getData();
+            }
+            target++;
+            cursor = cursor.getLink();
         }
-        cursor = BeerNode.listPosition(head, index);
-        return cursor.getData();
+        return null;
     }
     public int indexOf(Beer target){
         BeerNode cursor = head;
