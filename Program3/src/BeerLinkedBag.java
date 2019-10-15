@@ -86,11 +86,12 @@ public class BeerLinkedBag {
         }
         return count;
     }
+
     public Beer grab(int index) {
         BeerNode cursor = head;
-        int target =1;
-        while (cursor != null){
-            if (target == index){
+        int target = 1;
+        while (cursor != null) {
+            if (target == index) {
                 return cursor.getData();
             }
             target++;
@@ -98,11 +99,12 @@ public class BeerLinkedBag {
         }
         return null;
     }
-    public int indexOf(Beer target){
+
+    public int indexOf(Beer target) {
         BeerNode cursor = head;
         int index = 1;
-        while (cursor != null){
-            if (cursor.getData().compareTo(target) == 0){
+        while (cursor != null) {
+            if (cursor.getData().compareTo(target) == 0) {
                 return index;
             }
             index++;
@@ -110,6 +112,48 @@ public class BeerLinkedBag {
         }
         return -1;
     }
+    public void set(int index, Beer element) {
+        BeerNode cursor = head;
+        if (manyItems > index && index < 0) {
+            //while (index != null){
+            for (int i = 0; i < index; i++) { // Gives us a nice counter and makes sure we don't run past our index.
+                if (i == (index - 1)) {
+                    //if(cursor.getData() == index){
+                    //index++;
+                    cursor.addBeerNodeAfter(element);
+
+                    //}
+                } else {
+                    cursor = cursor.getLink();
+                }
+            }
+        }
+    }
+    public boolean replace(Beer oldBeer, Beer newBeer){
+        BeerNode cursor = head;
+        //BeerNode previous = null;
+        for (int i = 0; i < manyItems; i++){
+            if(cursor.getData().equals(oldBeer)){
+                cursor.setData(newBeer);
+                return true;
+            }
+            //previous = cursor;
+            cursor = cursor.getLink();
+        }
+
+        return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

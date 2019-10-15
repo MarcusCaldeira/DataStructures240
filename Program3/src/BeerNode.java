@@ -43,10 +43,10 @@ public class BeerNode {
         int i;
         if(position <= 0)
             throw new IllegalArgumentException("position is not positive.");
-            cursor = head;
-            for (i = 1; (i < position) && (cursor != null); i++)
-                cursor = cursor.link;
-            return cursor;
+        cursor = head;
+        for (i = 1; (i < position) && (cursor != null); i++)
+            cursor = cursor.link;
+        return cursor;
     }
     public static int listLength(BeerNode head){
         BeerNode cursor;
@@ -61,6 +61,6 @@ public class BeerNode {
         for(cursor = head; cursor !=null; cursor = cursor.link)
             if(target == cursor.data)
                 return cursor;
-            return null;
+        return null;
     }
 }
