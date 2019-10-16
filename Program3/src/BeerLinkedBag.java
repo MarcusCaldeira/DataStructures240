@@ -163,7 +163,25 @@ public class BeerLinkedBag {
         }
         return list.head;
     }
-    //Greater Than
+    public BeerNode greaterThan(Beer element){
+        BeerLinkedBag list2 = new BeerLinkedBag;
+        BeerNode cursor = head;
+        while (cursor!= null){
+            if(cursor.getData().compareTo(element) < 0){
+                list2.add(cursor.getData());
+            }
+            cursor = cursor.getLink();
+        }
+        return list2.head;
+    }
+
+
+
+
+
+
+
+
     //getMax
     //getMin
 
