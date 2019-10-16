@@ -143,7 +143,29 @@ public class BeerLinkedBag {
 
         return false;
     }
-
+    public int totalValue(){
+        BeerNode cursor = head;
+        int sum = 0;
+        while (cursor!= null) {
+            sum = sum + cursor.getData().getRating();
+            cursor = cursor.getLink();
+        }
+        return sum;
+    }
+    public BeerNode lessThan(Beer element){
+        BeerLinkedBag list = new BeerLinkedBag;
+        BeerNode cursor = head;
+        while (cursor!= null){
+            if(cursor.getData().compareTo(element) <= 0){
+                list.add(cursor.getData());
+            }
+            cursor = cursor.getLink();
+        }
+        return list.head;
+    }
+    //Greater Than
+    //getMax
+    //getMin
 
 
 
