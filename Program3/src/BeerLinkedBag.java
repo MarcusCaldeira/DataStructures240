@@ -8,9 +8,6 @@ public class BeerLinkedBag {
         head = null;
         manyItems = 0;
     }
-
-    ;
-
     public int size() {
         return this.manyItems;
     }
@@ -22,12 +19,10 @@ public class BeerLinkedBag {
             System.out.println(display);
         }
     }
-
     public void add(Beer beer) {
         head = new BeerNode(beer, head);
         manyItems++;
     }
-
     public void add(int index, Beer element) {
         if (index >= 0) {
             BeerNode cursor;
@@ -51,7 +46,6 @@ public class BeerLinkedBag {
             }
         }
     }
-
     public boolean remove(Beer target) {
         BeerNode cursor;
         for (cursor = head; cursor != null; cursor = cursor.getLink()) {
@@ -116,13 +110,9 @@ public class BeerLinkedBag {
         BeerNode cursor = head;
         if (manyItems > index && index < 0) {
             //while (index != null){
-            for (int i = 0; i < index; i++) { // Gives us a nice counter and makes sure we don't run past our index.
+            for (int i = 0; i < index; i++) {
                 if (i == (index - 1)) {
-                    //if(cursor.getData() == index){
-                    //index++;
                     cursor.addBeerNodeAfter(element);
-
-                    //}
                 } else {
                     cursor = cursor.getLink();
                 }
@@ -131,7 +121,6 @@ public class BeerLinkedBag {
     }
     public boolean replace(Beer oldBeer, Beer newBeer){
         BeerNode cursor = head;
-        //BeerNode previous = null;
         for (int i = 0; i < manyItems; i++){
             if(cursor.getData().equals(oldBeer)){
                 cursor.setData(newBeer);
@@ -140,7 +129,6 @@ public class BeerLinkedBag {
             //previous = cursor;
             cursor = cursor.getLink();
         }
-
         return false;
     }
     public int totalValue(){
