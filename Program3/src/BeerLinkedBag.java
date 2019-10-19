@@ -153,7 +153,7 @@ public class BeerLinkedBag {
         return sum;
     }
     public BeerNode lessThan(Beer element){
-        BeerLinkedBag list = new BeerLinkedBag;
+        BeerLinkedBag list = new BeerLinkedBag();
         BeerNode cursor = head;
         while (cursor!= null){
             if(cursor.getData().compareTo(element) <= 0){
@@ -164,7 +164,7 @@ public class BeerLinkedBag {
         return list.head;
     }
     public BeerNode greaterThan(Beer element){
-        BeerLinkedBag list2 = new BeerLinkedBag;
+        BeerLinkedBag list2 = new BeerLinkedBag();
         BeerNode cursor = head;
         while (cursor!= null){
             if(cursor.getData().compareTo(element) < 0){
@@ -174,26 +174,32 @@ public class BeerLinkedBag {
         }
         return list2.head;
     }
+    public Beer getMax()
+    {
+        BeerNode cursor = head;
+        Beer maxFoundSoFar = head.getData();
 
 
+        while(cursor !=null) {
+            if(cursor.getData().compareTo(maxFoundSoFar) >= 1){
+                maxFoundSoFar = cursor.getData();
 
+            }
+            cursor = cursor.getLink();
+        }
+        return maxFoundSoFar;
+    }
+    public Beer getMin(){
+        BeerNode cursor = head;
+        Beer minFoundSoFar = head.getData();
+        while(cursor !=null)
+        {
+            if(cursor.getData().compareTo(minFoundSoFar) < 0) {
+                minFoundSoFar = cursor.getData();
 
-
-
-
-
-    //getMax
-    //getMin
-
-
-
-
-
-
-
-
-
-
-
-
+            }
+            cursor = cursor.getLink();
+        }
+        return minFoundSoFar;
+    }
 }
