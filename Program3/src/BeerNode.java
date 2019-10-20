@@ -24,6 +24,7 @@ public class BeerNode {
     public void setLink(BeerNode link) {
         this.link = link;
     }
+
     public void addBeerNodeAfter(Beer beer){
         this.link = new BeerNode(beer, this.link);
     }
