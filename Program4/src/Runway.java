@@ -1,29 +1,29 @@
 import java.util.Queue;
 import java.util.LinkedList;
 
-public class Washer {
+public class Runway{
 
-    private int minutesForWash;
-    private int washTimeLeft;
+    private int minutesForLanding;
+    private int minutesForTakeoff;
 
-    public Washer(int s) {
-        minutesForWash = s;
-        washTimeLeft = 0;
+    public Runway(int s) {
+        minutesForLanding = s;
+        minutesForTakeoff = 0;
     }
 
     public boolean isBusy()	{
-        return (washTimeLeft > 0);
+        return (minutesForTakeoff > 0);
     }
 
     public void reduceRemainingTime()	{
-        if (washTimeLeft > 0)
-            washTimeLeft--;
+        if (minutesForTakeoff > 0)
+            minutesForTakeoff--;
     }
 
     public void startWashing()	{
-        if (washTimeLeft > 0)
+        if (minutesForTakeoff > 0)
             throw new IllegalStateException("Washer is already busy");
-        washTimeLeft = minutesForWash;
+        minutesForTakeoff = minutesForLanding;
     }
 
 	/* Exponential distribution
@@ -37,7 +37,7 @@ public class Washer {
         int next;
 
         BooleanSource arrival = new BooleanSource (arrivalProb);
-        Washer machine = new Washer(washTime);
+        Runway machine = new Runway(washTime);
         Averager waitTimes = new Averager();
         int currentMinute;
 
@@ -67,12 +67,12 @@ public class Washer {
     }
 
     public static void main(String[] args)	{
-        Washer.carWashSimulate(1, 0.7, 100000);
+        Runway.carWashSimulate(1, 0.7, 100000);
         System.out.println ("---------------------");
-        Washer.carWashSimulate(10, 0.7, 100000);
+        Runway.carWashSimulate(10, 0.7, 100000);
         System.out.println ("---------------------");
-        Washer.carWashSimulate(1, 1, 100000);
+        Runway.carWashSimulate(1, 1, 100000);
         System.out.println ("---------------------");
-        Washer.carWashSimulate(10, 1, 100000);
+        Runway.carWashSimulate(10, 1, 100000);
     }
 }
