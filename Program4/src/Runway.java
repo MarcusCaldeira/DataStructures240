@@ -5,10 +5,12 @@ public class Runway{
 
     private int minutesForLanding;
     private int minutesForTakeoff;
+    private int minutesLeft;
 
-    public Runway(int s) {
-        minutesForLanding = s;
-        minutesForTakeoff = 0;
+    public Runway(int l, int t) {
+        minutesForLanding = l;
+        minutesForTakeoff = t;
+        minutesLeft = 0;
     }
 
     public boolean isBusy()	{
@@ -20,12 +22,12 @@ public class Runway{
             minutesForTakeoff--;
     }
     public void startService(int type){
-        if(minutesForTakeoff > 0 || minutesForLanding > 0){
+        if(minutesLeft > 0){
             throw new IllegalStateException("Runway is busy");
         }else if(type == 1){
-            minutesForLanding = type;
+            minutesLeft = minutesForLanding;
         }if(type == 0){
-            minutesForTakeoff = type;
+            minutesLeft = minutesForTakeoff;
         }
     }
 
@@ -36,7 +38,7 @@ public class Runway{
 
         BooleanSource arrival = new BooleanSource (landingProb);
         BooleanSource takeOff = new BooleanSource (takeoffProb);
-        Runway runway = new Runway(landingTime);
+        Runway runway = new Runway(landingTime, takeOffTime);
         Averager averageWaitTimeForLanding = new Averager();
         Averager averageWaitTimeForTakeOff = new Averager();
         int currentMinute;
@@ -61,13 +63,13 @@ public class Runway{
                 next = arrivalTimes.remove();
                 //As the plane is landing we remove it from the arrival(always check if there is another plane.)
                 averageWaitTimeForLanding.addNumber(currentMinute - next);
-                runway.startService(1);
+                runway.startService(0);
             }
             //TAKEOFF
             else if((!runway.isBusy()) && (!arrivalTimes.isEmpty())){
                 next = departureTimes.remove();
                 averageWaitTimeForTakeOff.addNumber(currentMinute-next);
-                runway.startService(0);
+                runway.startService(1);
             }
             runway.reduceRemainingTime();
         }
@@ -78,7 +80,7 @@ public class Runway{
     }
 
     public static void main(String[] args)	{
-        Runway.simulate(2, 9, .50, .30,15);
+        Runway.simulate(2, 9, .50, .50,15);
         System.out.println ("---------------------");
     }
 
