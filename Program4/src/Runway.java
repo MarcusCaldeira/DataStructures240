@@ -8,9 +8,9 @@ public class Runway{
     private int minutesLeft;
 
     public Runway(int l, int t) {
-        minutesForLanding = l;
-        minutesForTakeoff = t;
-        minutesLeft = 0;
+        this.minutesForLanding = l;
+        this.minutesForTakeoff = t;
+        this.minutesLeft = 0;
     }
 
     public boolean isBusy()	{
@@ -38,7 +38,10 @@ public class Runway{
 
         BooleanSource arrival = new BooleanSource (landingProb);
         BooleanSource takeOff = new BooleanSource (takeoffProb);
+        //Single Runway
         Runway runway = new Runway(landingTime, takeOffTime);
+        //Double Runway
+        Runway runwayTwo = new Runway(landingTime, takeOffTime);
         Averager averageWaitTimeForLanding = new Averager();
         Averager averageWaitTimeForTakeOff = new Averager();
         int currentMinute;
@@ -53,19 +56,17 @@ public class Runway{
         for (currentMinute = 0; currentMinute < totalTime; currentMinute++)	{
             if (arrival.query()){
                 arrivalTimes.add(currentMinute);
-            }else if(takeOff.query()){
+            }if (takeOff.query()){
                 departureTimes.add(currentMinute);
             }
-            //LANDING
-            //if the runway is free and if its busy(somebody is waiting to be serviced)
-            else if ((!runway.isBusy()) && (!arrivalTimes.isEmpty()))	{
+            //"Remember that landings take precedence over takeoffs"
+            if ((!runway.isBusy()) && (!arrivalTimes.isEmpty()) )	{
                 //we remove the landing plane and place it into next.
                 next = arrivalTimes.remove();
                 //As the plane is landing we remove it from the arrival(always check if there is another plane.)
                 averageWaitTimeForLanding.addNumber(currentMinute - next);
                 runway.startService(0);
             }
-            //TAKEOFF
             else if((!runway.isBusy()) && (!arrivalTimes.isEmpty())){
                 next = departureTimes.remove();
                 averageWaitTimeForTakeOff.addNumber(currentMinute-next);
@@ -74,13 +75,13 @@ public class Runway{
             runway.reduceRemainingTime();
         }
 
-        System.out.println("Customers served: " + averageWaitTimeForLanding.howManyNumbers());
+        System.out.println("Planes Serviced: " + averageWaitTimeForLanding.howManyNumbers());
         if (averageWaitTimeForLanding.howManyNumbers() > 0)
             System.out.println("Average wait: " + averageWaitTimeForLanding.average() + " sec");
     }
 
     public static void main(String[] args)	{
-        Runway.simulate(2, 9, .50, .50,15);
+        Runway.simulate(2, 3, .45, .000000001,100000);
         System.out.println ("---------------------");
     }
 
