@@ -4,8 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CaldeiraProgram1/CaldeiraProgram1.iml" filepath="$PROJECT_DIR$/CaldeiraProgram1/CaldeiraProgram1.iml" />
       <module fileurl="file://$PROJECT_DIR$/CaldeiraProgram2/CaldeiraProgram2.iml" filepath="$PROJECT_DIR$/CaldeiraProgram2/CaldeiraProgram2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CaldeiraProgram4/CaldeiraProgram4.iml" filepath="$PROJECT_DIR$/CaldeiraProgram4/CaldeiraProgram4.iml" />
       <module fileurl="file://$PROJECT_DIR$/DataStructures240.iml" filepath="$PROJECT_DIR$/DataStructures240.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Program3/Program3.iml" filepath="$PROJECT_DIR$/Program3/Program3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CaldeiraProgram3/Program3.iml" filepath="$PROJECT_DIR$/CaldeiraProgram3/Program3.iml" />
       <module fileurl="file://$PROJECT_DIR$/Program4/Program4.iml" filepath="$PROJECT_DIR$/Program4/Program4.iml" />
     </modules>
   </component>
