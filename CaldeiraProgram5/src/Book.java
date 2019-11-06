@@ -26,10 +26,12 @@ public class Book extends SalesItem {
 
     @Override
     public void monthlyPromo() {
+        double currentPrice = this.getPrice() - (this.getPrice() * 0.03);
+        this.setPrice(currentPrice);
     }
     @Override
     public String toString(){
-        String str = String.format("%s\t%d\t",author,numPages);
+        String str = String.format("%s	%s	%d	",super.toString(),author,numPages);
         return str;
     }
 
