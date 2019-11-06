@@ -41,7 +41,7 @@ public abstract class SalesItem {
     public String toString(){
         String str = String.format("%d\t%d\t%d\t",code,price,quantity);
         return str;
-
+    }
 
 
 
