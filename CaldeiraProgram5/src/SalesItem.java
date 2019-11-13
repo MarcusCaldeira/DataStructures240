@@ -39,11 +39,7 @@ public abstract class SalesItem {
     public abstract void monthlyPromo();
     @Override
     public String toString(){
-        String str = String.format("%d\t%d\t%d\t",code,price,quantity);
+        String str = String.format("%d	%f	%d	", code, price, quantity);
         return str;
     }
-
-
-
-
 }
