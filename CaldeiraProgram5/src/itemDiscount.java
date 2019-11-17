@@ -9,7 +9,9 @@ class ItemDiscount {
 
     public double calculateDiscount(SalesItem item){
         if(item.getQuantity() >= qualifiedQuantity) {
-            return item.getPrice() * (discount / 100);
+//            System.out.println(item.getQuantity());
+//            System.out.println(qualifiedQuantity);
+            return item.getPrice() * (discount / 100.0);
         } else {
             return 0.0;
         }
