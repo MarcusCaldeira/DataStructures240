@@ -62,7 +62,7 @@ public class Beer implements Comparable <Beer>{
      */
     @Override
     public String toString(){
-        String str = String.format("%s\t%s\t%d\t", name, brand, rating);
+        String str = String.format("%s\t%s\t%d\t",name  ,   brand,    rating);
         return str;
     }
     /**
