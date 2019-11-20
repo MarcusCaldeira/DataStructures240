@@ -34,6 +34,19 @@ public class BeerTree {
 
 
 
+    public int count(BeerNode root){
+        int numberOfNodes = 0;
+        if (root == null)
+            return 0;
+        if(root.getLeftChild() != null && root.getRightChild() != null)
+            numberOfNodes++;
+        numberOfNodes += (count(root.getLeftChild())+ count(root.getRightChild()));
+        return numberOfNodes;
+    }
+
+
+
+
 
 
 
