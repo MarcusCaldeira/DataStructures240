@@ -8,6 +8,11 @@ public class Beer implements Comparable <Beer>{
     private String brand;
     private String name = "";
 
+    public Beer(int rating, String brand, String name) {
+        this.rating = rating;
+        this.brand = brand;
+        this.name = name;
+    }
     /**
      *Getter or Rating.
      * @return a integer
