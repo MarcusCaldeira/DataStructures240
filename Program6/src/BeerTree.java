@@ -63,4 +63,11 @@ public class BeerTree {
             else return rightDepth +1;
     }
 
+    public BeerNode search(BeerNode root, String key){
+        if(root == null || root.getData().getName() == key)
+            return root;
+        if(root.getData().getName() > key.compareTo(root.getData().getName())])
+
+    }
+
 }
