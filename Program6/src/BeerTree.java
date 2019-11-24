@@ -1,18 +1,6 @@
 public class BeerTree {
     private BeerNode root;
 
-    //    public void add(Beer beer){
-//        root = add(root, beer);
-//    }
-//    private BeerNode add(BeerNode cur, Beer beer){
-//        if(cur == null)
-//            return new BeerNode(beer, null, null);
-//        if(beer.compareTo(cur.getData()) < 0)
-//            cur.setLeftChild(add(cur.getLeftChild(), beer));
-//        else if (beer.compareTo(cur.getData()) > 0)
-//            cur.setRightChild(add(cur.getRightChild(), beer));
-//        return cur;
-//    }
     public void add(Beer beer) {
         if (root == null) {
             //Start of new Tree
@@ -41,13 +29,37 @@ public class BeerTree {
      *
      * @param node it takes in one node.
      */
-    public void preorder(BeerNode node) {
-        System.out.println(node.getData() + "\t");
-        if (node.getLeftChild() != null)
-            preorder(node.getLeftChild());
-        if (node.getRightChild() != null)
-            preorder(node.getRightChild());
+
+    public void preOrder(){
+        System.out.println(this.getData() + "	");
+        if(root.getLeftChild() != null){
+            Tree t = new Tree(root.getLeftChild());
+            t.preOrder();
+
+        }
+        if(root.getRightChild() != null){
+            Tree t = new Tree(root.getRightChild());
+            t.preOrder();
+
+        }
+
+
     }
+    public void preOrder(){
+        System.out.println(root.getData() + "	");
+        if(root.getLeftChild() != null)
+            preOrder(root.getLeftChild();
+        if(root.getRightChild() != null)
+            root.getRightChild().preOrder();
+
+    }
+//    public void preorder(BeerNode node) {
+////        System.out.println(node.getData() + "\t");
+////        if (node.getLeftChild() != null)
+////            preorder(node.getLeftChild());
+////        if (node.getRightChild() != null)
+////            preorder(node.getRightChild());
+////    }
 
     /**
      * This method prints in the list in Postorder

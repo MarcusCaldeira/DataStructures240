@@ -7,7 +7,7 @@ public class BeerTreeDriver {
         Tree.add(new Beer(3,"BOBOBOB", "Corona Light"));
         Tree.add(new Beer(3,"FLOPS", "Corona Light"));
 
-        System.out.println(Tree.inorde);
+        System.out.println(Tree.inorder(););
 
     }
 }
