@@ -23,69 +23,39 @@ public class BeerTree {
             else cur.setRightChild(new BeerNode(beer, null, null));
         }
     }
-
-    /**
-     * This method prints the list in PreOrder.
-     *
-     * @param node it takes in one node.
-     */
-
-    public void preOrder(){
-        System.out.println(this.getData() + "	");
-        if(root.getLeftChild() != null){
-            Tree t = new Tree(root.getLeftChild());
-            t.preOrder();
-
-        }
-        if(root.getRightChild() != null){
-            Tree t = new Tree(root.getRightChild());
-            t.preOrder();
-
-        }
-
-
-    }
-    public void preOrder(){
-        System.out.println(root.getData() + "	");
-        if(root.getLeftChild() != null)
-            preOrder(root.getLeftChild();
+    private void preOrder(BeerNode cur){
+        System.out.println(cur.getData() + "\t");
+        if(cur != null)
+            preOrder(cur.getLeftChild());
         if(root.getRightChild() != null)
-            root.getRightChild().preOrder();
-
+            preOrder(cur.getRightChild());
     }
-//    public void preorder(BeerNode node) {
-////        System.out.println(node.getData() + "\t");
-////        if (node.getLeftChild() != null)
-////            preorder(node.getLeftChild());
-////        if (node.getRightChild() != null)
-////            preorder(node.getRightChild());
-////    }
-
-    /**
-     * This method prints in the list in Postorder
-     *
-     * @param node it takes in a node.
-     */
-    public void postorder(BeerNode node) {
-        if (node.getLeftChild() != null)
-            postorder(node.getLeftChild());
-        if (node.getRightChild() != null)
-            preorder(node.getLeftChild());
-        System.out.println(node.getData() + "\t");
+    public void preOrder(){
+        preOrder(root);
     }
 
-    /**
-     * This method prints the list Inorder
-     *
-     * @param node
-     */
-    public void inorder(BeerNode node) {
-        if (node.getLeftChild() != null)
-            inorder(node.getLeftChild());
-        System.out.println(node.getData() + "\t");
-        if (node.getRightChild() != null)
-            inorder(node.getRightChild());
+    private void postOrder(BeerNode cur){
+        if(cur.getLeftChild() != null)
+            postOrder(cur.getLeftChild());
+        if(cur.getRightChild() != null)
+            postOrder(cur.getRightChild());
+        System.out.println(cur.getData() + "\t");
     }
+    public  void postOrder(){
+        preOrder(root);
+    }
+    private void inOrder(BeerNode cur){
+        if(cur != null)
+            inOrder(cur.getLeftChild());
+        System.out.println(cur.getData() + "\t");
+        inOrder(cur.getRightChild());
+    }
+    public void inOrder(){
+        inOrder(root);
+    }
+
+
+
 
     /**
      * This method calculates the depth of the tree
