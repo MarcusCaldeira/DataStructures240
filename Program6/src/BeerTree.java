@@ -53,10 +53,6 @@ public class BeerTree {
     public void inOrder(){
         inOrder(root);
     }
-
-
-
-
     /**
      * This method calculates the depth of the tree
      *
