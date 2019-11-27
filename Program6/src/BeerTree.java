@@ -1,5 +1,6 @@
 public class BeerTree {
     private BeerNode root;
+    public static boolean flag = false;
 
     public void add(Beer beer) {
         if (root == null) {
@@ -24,7 +25,9 @@ public class BeerTree {
         }
     }
     private void preOrder(BeerNode cur){
-        System.out.println(cur.getData() + "\t");
+        if (cur == null)
+            return;
+        System.out.println(cur.getData() + "	");
         if(cur != null)
             preOrder(cur.getLeftChild());
         if(root.getRightChild() != null)
@@ -35,39 +38,95 @@ public class BeerTree {
     }
 
     private void postOrder(BeerNode cur){
+        if(cur == null) {
+            return;
+        }
         if(cur.getLeftChild() != null)
             postOrder(cur.getLeftChild());
         if(cur.getRightChild() != null)
             postOrder(cur.getRightChild());
-        System.out.println(cur.getData() + "\t");
+        System.out.println(cur.getData() + "	");
     }
     public  void postOrder(){
-        preOrder(root);
+        postOrder(root);
     }
     private void inOrder(BeerNode cur){
-        if(cur != null)
-            inOrder(cur.getLeftChild());
-        System.out.println(cur.getData() + "\t");
+        if(cur == null){
+            return;
+        }
+        inOrder(cur.getLeftChild());
+        System.out.println(cur.getData().getRating() + "	");
         inOrder(cur.getRightChild());
     }
+
     public void inOrder(){
         inOrder(root);
     }
     /**
      * This method calculates the depth of the tree
      *
-     * @param root the starting node of three, that acts as the base to count of off.
+     * @param node the starting node of three, that acts as the base to count of off.
      * @return will return the the depth of the tree, despite which side is larger.
      */
-    public int depth(BeerNode root) {
-        int leftDepth = depth(root.getLeftChild());
-        int rightDepth = depth(root.getRightChild());
-        if (this.root == null)
+    private int depth(BeerNode node) {
+        if (node == null) {
             return 0;
-        else if (leftDepth > rightDepth)
-            return leftDepth + 1;
-        else return rightDepth + 1;
+        } else {
+            int leftDepth = depth(node.getLeftChild());
+            int rightDepth = depth(node.getRightChild());
+            if (leftDepth > rightDepth) {
+                return leftDepth + 1;
+            } else {
+                return rightDepth + 1;
+            }
+        }
     }
+    public int depth(){
+        return depth(root);
+    }
+    private int count(BeerNode node) {
+        if (node == null) {
+            return 0;
+        } else {
+            int count=1;
+            count += count(node.getLeftChild());
+            count += count(node.getRightChild());
+            return count;
+        }
+    }
+
+    public int count(){
+        return count(root);
+    }
+
+
+
+
+    private Beer search(BeerNode root,Beer item){
+        if(root == null || root.getData() == item)
+            return root.getData();
+
+        if(root.getData().getRating() > item.getRating())
+            return search(root.getLeftChild(),item);
+
+        return search(root.getRightChild(),item);
+
+    }
+    public Beer search(Beer item)
+    {
+        // and then pass in the item
+        return search(root, item);
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 }
