@@ -1,7 +1,15 @@
 public class BeerTree {
+    /**
+     * The Instance variables for the tree class.
+     */
     private BeerNode root;
     public static boolean flag = false;
 
+    /**
+     * The public method for beer used in driver class, adds a beer to the list.
+     *
+     * @param beer takes in one beer object.
+     */
     public void add(Beer beer) {
         if (root == null) {
             //Start of new Tree
@@ -11,6 +19,12 @@ public class BeerTree {
         }
     }
 
+    /**
+     * The Private method for adding a beer, will add a Beer.
+     *
+     * @param cur  Takes one beer node in
+     * @param beer and takes on beer in.
+     */
     private void add(BeerNode cur, Beer beer) {
         // if the beer added comes before  or is the same as the current beer in the alphabet it is added to the left
         if (cur.getData().compareTo(beer) >= 0) {
@@ -25,8 +39,15 @@ public class BeerTree {
             else cur.setRightChild(new BeerNode(beer, null, null));
         }
 
-//        switch (beer.compareTo())
     }
+
+    /**
+     * Private method contains the logic of the public method.
+     * Visits the node, then goes down
+     * the left subtree and then goes down the right subtree.
+     *
+     * @param cur takes in a node to traverse.
+     */
 
     private void preOrder(BeerNode cur) {
         if (cur == null)
@@ -38,10 +59,19 @@ public class BeerTree {
             preOrder(cur.getRightChild());
     }
 
+    /**
+     * public method for the order of the tree itself.
+     */
     public void preOrder() {
         preOrder(root);
     }
 
+    /**
+     * The private method for the preorder method. Calls itself to traverse the left subtree,
+     * then calls itself to traverse the right sub tree.
+     *
+     * @param cur
+     */
     private void postOrder(BeerNode cur) {
         if (cur == null) {
             return;
@@ -117,15 +147,19 @@ public class BeerTree {
      * @return The data for the target Beer
      */
     private Beer search(BeerNode root, Beer item) {
-        if (root == null || root.getData().equals(item))
-            return root == null ? null : root.getData();
+        if (root == null) {
+            return null;
+        }
+        if (root.getData().equals(item))
+            return root.getData();
 
-        if (root.getData().getRating() > item.getRating())
+        else if (root.getData().compareTo(item) > 0) // if the root.name of root is after the item.name go left
             return search(root.getLeftChild(), item);
-
-        return search(root.getRightChild(), item);
+        else
+            return search(root.getRightChild(), item);
 
     }
+
 
     public Beer search(Beer item) {
         // and then pass in the item

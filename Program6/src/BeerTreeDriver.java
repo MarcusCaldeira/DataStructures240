@@ -32,15 +32,17 @@ public class BeerTreeDriver {
 
 //        System.out.println(tree.depth());
 //        System.out.println(tree.count());
+        Beer exampleBeer = new Beer(15, "CORONA", "CORONA LIGHT");
         Beer beer = new Beer(15, "CORONA", "CORONA LIGHT");
 
-        System.out.println(tree.search(beer));
-        System.out.println(tree.depth());
+        System.out.printf("Search for %s\n\tResult is: %s\n", beer.getName(), tree.search(beer));
+        System.out.printf("Tree depth: %s\n", tree.depth());
 
         System.out.println("BUDWEISER".compareToIgnoreCase("BUDWEISER"));
         System.out.println("BUDWEISER".compareToIgnoreCase("MILLER LITE"));
         System.out.println("BUDWEISER".compareToIgnoreCase("SAM ADAMS BOSTON LAGER"));
         System.out.println("BUDWEISER".compareToIgnoreCase("Appalachian"));
+        System.out.printf("Are exampleBeer and beer equal: %s", exampleBeer.equals(beer));
 
 
     }
